@@ -1,0 +1,345 @@
+.member-creation-card {
+  max-width: 620px;
+}
+
+.modal-header {
+  padding: 1.8rem 2rem 1.2rem;
+  background: linear-gradient(135deg, #FAF6F0 0%, #F5F0E7 100%);
+  border-bottom: 1px solid var(--color-border-gold);
+  position: relative;
+}
+
+.header-badge-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.4rem;
+}
+
+.header-badge-pip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+.header-badge-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-gold);
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  color: var(--color-forest-dark);
+  margin: 0 0 0.3rem;
+}
+
+.modal-subtitle {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-gold);
+  color: var(--color-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-icon:hover {
+  background: var(--color-forest);
+  color: #FFFFFF;
+}
+
+/* Scrollable Form */
+.modal-form-scrollable {
+  padding: 1.8rem 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-height: calc(88vh - 120px);
+}
+
+.form-error-banner {
+  background: #FDF2F2;
+  border: 1px solid #F8B4B4;
+  color: #9B1C1C;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+}
+
+/* Photo Upload Section */
+.photo-upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.photo-upload-row {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  background: var(--bg-parchment-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+}
+
+@media (max-width: 540px) {
+  .photo-upload-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.circular-avatar-preview {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #E6D9C4;
+  flex-shrink: 0;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 6px 18px rgba(38, 61, 50, 0.15);
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.default-avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EDE4D4;
+}
+
+.fallback-user-icon {
+  color: var(--color-forest-muted);
+}
+
+.avatar-gold-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-gold);
+  pointer-events: none;
+}
+
+.photo-actions-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.btn-group-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+}
+
+.btn-remove-photo {
+  color: #8C2D2D;
+}
+
+.file-hint-text {
+  font-size: 0.74rem;
+  color: var(--text-subtle);
+}
+
+/* Preset Portraits */
+.preset-portraits-row {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.preset-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-gold);
+}
+
+.preset-avatars-list {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.preset-thumb-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid var(--color-border-gold);
+  padding: 0;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.preset-thumb-btn:hover {
+  transform: scale(1.15);
+  border-color: var(--color-gold);
+}
+
+.preset-thumb-btn.active {
+  border-color: var(--color-forest);
+  box-shadow: 0 0 0 2px var(--color-gold);
+}
+
+.preset-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Field Groups */
+.field-label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-forest-dark);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.req-star {
+  color: #C0392B;
+}
+
+.form-names-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .form-names-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.text-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--bg-parchment-light);
+  color: var(--color-forest-dark);
+  font-size: 0.92rem;
+  font-family: inherit;
+  transition: all var(--transition-fast);
+}
+
+.text-input:focus {
+  background: #FFFFFF;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px var(--color-gold-glow);
+}
+
+.textarea-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--bg-parchment-light);
+  color: var(--color-forest-dark);
+  font-size: 0.92rem;
+  font-family: inherit;
+  resize: vertical;
+  line-height: 1.6;
+  transition: all var(--transition-fast);
+}
+
+.textarea-input:focus {
+  background: #FFFFFF;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px var(--color-gold-glow);
+}
+
+/* Position Suggestions */
+.position-suggestions-wrap {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sugg-title {
+  font-size: 0.74rem;
+  color: var(--text-subtle);
+  font-weight: 500;
+}
+
+.sugg-pills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.suggestion-pill {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-forest-muted);
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.suggestion-pill:hover {
+  border-color: var(--color-gold);
+  color: var(--color-forest-dark);
+  background: var(--bg-parchment-light);
+}
+
+.suggestion-pill.active {
+  background: var(--color-forest);
+  color: #FFFFFF;
+  border-color: var(--color-forest-dark);
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+}
+
+.modal-save-btn {
+  padding: 0.75rem 1.6rem;
+}
+

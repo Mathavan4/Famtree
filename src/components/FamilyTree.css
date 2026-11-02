@@ -1,0 +1,216 @@
+.family-tree-canvas-viewport {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: calc(100vh - 64px);
+  background-color: var(--bg-ivory);
+  background-image: 
+    radial-gradient(rgba(181, 139, 89, 0.16) 1.2px, transparent 1.2px),
+    linear-gradient(180deg, #FAF6F0 0%, #F5F0E7 40%, #EFE8DC 100%);
+  background-size: 34px 34px, 100% 100%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Ambient Radial Lighting */
+.canvas-radial-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.glow-nw {
+  top: 10%;
+  left: 5%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(181, 139, 89, 0.22) 0%, transparent 70%);
+}
+
+.glow-se {
+  bottom: 5%;
+  right: 5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(38, 61, 50, 0.14) 0%, transparent 70%);
+}
+
+/* UI Controls Container */
+.ui-control {
+  z-index: 50;
+  pointer-events: auto;
+}
+
+/* Floating Toolbar (Pill Shaped) */
+.tree-toolbar {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-full);
+  padding: 0.45rem 0.75rem;
+  box-shadow: 0 10px 28px rgba(38, 61, 50, 0.12);
+}
+
+.toolbar-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-forest);
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.toolbar-btn:hover {
+  background: var(--bg-parchment-light);
+  color: var(--color-gold);
+  transform: scale(1.08);
+}
+
+.toolbar-zoom-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-forest-dark);
+  padding: 0 0.5rem;
+  min-width: 48px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.toolbar-sep {
+  width: 1px;
+  height: 20px;
+  background-color: rgba(38, 61, 50, 0.15);
+  margin: 0 0.25rem;
+}
+
+/* Bottom Instruction Pill */
+.canvas-instruction-pill {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(38, 61, 50, 0.9);
+  backdrop-filter: blur(10px);
+  color: var(--bg-ivory);
+  font-size: 0.75rem;
+  padding: 0.45rem 1.35rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+@media (min-width: 960px) {
+  .canvas-instruction-pill {
+    display: inline-flex;
+  }
+}
+
+.canvas-instruction-pill svg {
+  color: var(--color-gold);
+}
+
+/* Scalable Tree Stage */
+.scalable-tree-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: auto;
+}
+
+/* SVG Lineage Layer */
+.tree-svg-connectors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.tree-nodes-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Shared Circular + Button Between Couples (IMPORTANT RELATIONSHIP LOGIC) */
+.couple-plus-hub {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 35;
+}
+
+.couple-shared-plus-btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold), #9E7444);
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(181, 139, 89, 0.4);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.couple-shared-plus-btn:hover {
+  background: linear-gradient(135deg, #C29661, #8F6738);
+  transform: scale(1.18);
+  box-shadow: 0 6px 20px rgba(181, 139, 89, 0.6);
+}
+
+.plus-child-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-forest-dark);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+  border: 1px solid var(--color-gold);
+}
+
+.couple-shared-plus-btn:hover .plus-child-tooltip {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .tree-toolbar {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+

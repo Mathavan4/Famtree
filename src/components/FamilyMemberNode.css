@@ -1,0 +1,176 @@
+.family-node-item {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.25s;
+  z-index: 20;
+}
+
+.family-node-item:hover {
+  transform: translate(-50%, -53%) scale(1.05);
+  z-index: 30;
+}
+
+.family-node-item.selected {
+  transform: translate(-50%, -53%) scale(1.08);
+  z-index: 35;
+}
+
+.family-node-item.connect-highlight {
+  z-index: 40;
+}
+
+/* Avatar Shell */
+.node-avatar-shell {
+  position: relative;
+  padding: 5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FAF6F0 0%, #E6D9C4 100%);
+  border: 2px solid var(--color-border-gold);
+  box-shadow: 0 8px 24px rgba(38, 61, 50, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.family-node-item:hover .node-avatar-shell {
+  border-color: var(--color-gold);
+  box-shadow: 0 12px 30px rgba(181, 139, 89, 0.25);
+}
+
+.family-node-item.selected .node-avatar-shell {
+  border-color: var(--color-forest);
+  box-shadow: 0 0 0 4px var(--color-gold), 0 14px 35px rgba(38, 61, 50, 0.25);
+}
+
+.family-node-item.connect-highlight .node-avatar-shell {
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.4), 0 12px 30px rgba(181, 139, 89, 0.35);
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+.avatar-circle-frame {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #E6D9C4;
+}
+
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.family-node-item:hover .avatar-photo {
+  transform: scale(1.08);
+}
+
+.avatar-sepia-tint {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(181, 139, 89, 0.1), rgba(38, 61, 50, 0.18));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Circular + Button on Upper-Right of Profile Photograph */
+.node-upper-plus-btn {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-forest), var(--color-forest-dark));
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(38, 61, 50, 0.25);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  z-index: 5;
+}
+
+.node-upper-plus-btn:hover {
+  background: linear-gradient(135deg, var(--color-gold), #9E7444);
+  transform: scale(1.15) rotate(90deg);
+  box-shadow: 0 6px 16px rgba(181, 139, 89, 0.4);
+}
+
+/* Info Caption Card */
+.node-info-card {
+  margin-top: 0.65rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border-gold);
+  border-radius: 22px;
+  padding: 0.55rem 0.95rem;
+  box-shadow: 0 6px 18px rgba(38, 61, 50, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 140px;
+  max-width: 180px;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.family-node-item:hover .node-info-card {
+  border-color: var(--color-gold);
+  box-shadow: 0 8px 24px rgba(38, 61, 50, 0.12);
+}
+
+.family-node-item.selected .node-info-card {
+  border-color: var(--color-forest);
+  background: #FFFFFF;
+  box-shadow: 0 10px 28px rgba(38, 61, 50, 0.16);
+}
+
+.node-position-tag {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  margin-bottom: 2px;
+}
+
+.node-person-name {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: var(--color-forest-dark);
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.node-memories-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.66rem;
+  color: var(--color-forest-muted);
+  background: var(--bg-parchment-light);
+  border: 1px solid rgba(181, 139, 89, 0.18);
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+  margin-top: 4px;
+}
+
+.badge-sparkle {
+  color: var(--color-gold);
+}
+
